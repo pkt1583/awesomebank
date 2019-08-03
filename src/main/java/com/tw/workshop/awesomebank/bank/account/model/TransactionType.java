@@ -9,6 +9,6 @@ public enum TransactionType {
     }
 
     public long perform(long initialBalance, long currentTransactedAmount) {
-        return initialBalance-currentTransactedAmount*multiplier;
+        return initialBalance - currentTransactedAmount * multiplier;
     }
 }

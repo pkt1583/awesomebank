@@ -9,19 +9,18 @@ import java.util.UUID;
 
 @Data
 public class Bank {
-    public Bank(String name, String code) {
-        this.name = name;
-        this.code = code;
-        this.id = UUID.randomUUID().toString();
-    }
-
+    private final Map<String, BankUser> bankusers = new HashMap<>();
     private String name;
 
     private String code;
 
     private String id;
 
-    private final Map<String, BankUser> bankusers = new HashMap<>();
+    public Bank(String name, String code) {
+        this.name = name;
+        this.code = code;
+        this.id = UUID.randomUUID().toString();
+    }
 
     public void addUserToBank(String userName) {
         BankUser createdUser = new BankUser(userName);

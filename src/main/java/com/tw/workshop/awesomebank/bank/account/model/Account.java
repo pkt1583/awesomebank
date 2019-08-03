@@ -13,19 +13,17 @@ import static com.tw.workshop.awesomebank.bank.account.model.TransactionType.CRE
 import static com.tw.workshop.awesomebank.bank.account.model.TransactionType.DEBIT;
 
 public class Account {
+    @Getter
+    private String accountId;
+    @Getter
+    private long currentBalance;
+    @Getter
+    private List<Transaction> transactions = new LinkedList<>();
+
     public Account() {
         this.accountId = UUID.randomUUID().toString();
         this.currentBalance = 0;
     }
-
-    @Getter
-    private String accountId;
-
-    @Getter
-    private long currentBalance;
-
-    @Getter
-    private List<Transaction> transactions = new LinkedList<>();
 
     public void performCredit(long transactionAmount) {
         Transaction transaction = createTransaction(CREDIT, transactionAmount);
