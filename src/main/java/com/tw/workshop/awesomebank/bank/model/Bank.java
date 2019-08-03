@@ -1,17 +1,35 @@
 package com.tw.workshop.awesomebank.bank.model;
 
-import com.tw.workshop.awesomebank.bank.account.model.Account;
 import com.tw.workshop.awesomebank.bank.user.model.BankUser;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 @Data
 public class Bank {
-    @NotNull
+    public Bank(String name, String code) {
+        this.name = name;
+        this.code = code;
+        this.id = UUID.randomUUID().toString();
+    }
+
     private String name;
-    @NotNull
+
     private String code;
-    private List<BankUser> accounts;
+
+    private String id;
+
+    private final Map<String, BankUser> bankusers = new HashMap<>();
+
+    public void addUserToBank(String userName) {
+        BankUser createdUser = new BankUser(userName);
+        this.bankusers.put(createdUser.getBankUserId(), createdUser);
+    }
+
+    public BankUser getBankUserByUserId(String userid) {
+        return bankusers.get(userid);
+    }
+
 }

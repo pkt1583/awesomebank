@@ -1,14 +1,23 @@
 package com.tw.workshop.awesomebank.bank.user.model;
 
 import com.tw.workshop.awesomebank.bank.account.model.Account;
-import lombok.Data;
+import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.UUID;
 
-@Data
 public class BankUser {
-    private List<Account> accounts;
-    @NotNull
-    private String bankUserId;
+    private final String username;
+
+    public BankUser(String username) {
+        this.bankUserId = UUID.randomUUID().toString();
+        this.username = username;
+    }
+
+    @Getter
+    private final Account account = new Account();
+
+    @Getter
+    private final String bankUserId;
+
 }
