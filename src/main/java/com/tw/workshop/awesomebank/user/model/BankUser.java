@@ -12,7 +12,7 @@ public class BankUser {
     @Getter
     private final String bankUserId;
 
-    public BankUser(AwesomeUser user,String bankUserId) {
+    public BankUser(final AwesomeUser user, final String bankUserId) {
         this.bankUserId = bankUserId;
         this.user = user;
     }
