@@ -4,12 +4,12 @@ import com.tw.workshop.awesomebank.account.model.Account;
 
 import java.util.List;
 
-public abstract class TransactionReportService<T, U extends TransactionReportCreator> {
+public class TransactionReportService {
     public List<Account.Transaction> getTransactions(final Account account) {
         return account.getTransactions();
     }
 
-    public T createTransactionReport(final Account account, final U reportCreator) {
+    public <T> T createTransactionReport(final Account account, final TransactionReportCreator<T> reportCreator) {
         return reportCreator.createReport(getTransactions(account));
     }
 }

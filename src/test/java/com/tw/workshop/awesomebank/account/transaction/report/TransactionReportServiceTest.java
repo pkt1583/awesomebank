@@ -33,4 +33,18 @@ public class TransactionReportServiceTest {
         assertTrue(transactions.stream().filter(transaction -> transaction.getTransactionType() == TransactionType.CREDIT).collect(Collectors.toList()).size() == 4);
     }
 
+    @Test
+    public void testStringReportForTransactions() {
+        final TransactionReportService transactionReportService = new TransactionReportService();
+        final Account account = new Account();
+        account.performCredit(100);
+        account.performCredit(100);
+        account.performCredit(100);
+        account.performDebit(10);
+        account.performDebit(10);
+        account.performCredit(10);
+        final String transactions = transactionReportService.createTransactionReport(account, new StringOutputTransactionReport());
+        System.out.println(transactions);
+    }
+
 }

@@ -15,6 +15,8 @@ public class StringOutputTransactionReport implements TransactionReportCreator<S
                 .append(transaction.getTransactionType().name())
                 .append(" | ")
                 .append(transaction.getTransactionAmount())
-                .append(" | ").append(System.lineSeparator()));
+                .append(" | ")
+                .append(System.lineSeparator()));
+        return sb.toString();
     }
 }
