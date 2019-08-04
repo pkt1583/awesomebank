@@ -1,11 +1,20 @@
 package com.tw.workshop.awesomebank.account.transaction.report;
 
-public class StringOutputTransactionReport {
-    private final TransactionReportService transactionReportService;
+import com.tw.workshop.awesomebank.account.model.Account;
 
-    public StringOutputTransactionReport(final TransactionReportService transactionReportService) {
-        this.transactionReportService = transactionReportService;
+import java.util.List;
+
+public class StringOutputTransactionReport implements TransactionReportCreator<String> {
+
+    @Override
+    public String createReport(final List<Account.Transaction> account) {
+        final StringBuilder sb = new StringBuilder();
+        account.forEach(transaction -> sb.append(" | ")
+                .append(transaction.getTransactionId())
+                .append(" | ")
+                .append(transaction.getTransactionType().name())
+                .append(" | ")
+                .append(transaction.getTransactionAmount())
+                .append(" | ").append(System.lineSeparator()));
     }
-
-
 }
