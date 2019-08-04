@@ -1,4 +1,4 @@
-package com.tw.workshop.awesomebank.bank.account.exception;
+package com.tw.workshop.awesomebank.account.exception;
 
 public class InsufficientFundsException extends RuntimeException {
     public InsufficientFundsException(String message) {

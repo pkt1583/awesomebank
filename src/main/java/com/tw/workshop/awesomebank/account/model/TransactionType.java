@@ -1,4 +1,4 @@
-package com.tw.workshop.awesomebank.bank.account.model;
+package com.tw.workshop.awesomebank.account.model;
 
 public enum TransactionType {
     CREDIT(-1), DEBIT(1);

@@ -1,6 +1,6 @@
-package com.tw.workshop.awesomebank.bank.model;
+package com.tw.workshop.awesomebank.model;
 
-import com.tw.workshop.awesomebank.bank.user.model.BankUser;
+import com.tw.workshop.awesomebank.user.model.BankUser;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -22,9 +22,8 @@ public class Bank {
         this.id = UUID.randomUUID().toString();
     }
 
-    public void addUserToBank(String userName) {
-        BankUser createdUser = new BankUser(userName);
-        this.bankusers.put(createdUser.getBankUserId(), createdUser);
+    public void addUserToBank(BankUser bankUser) {
+        this.bankusers.put(bankUser.getBankUserId(), bankUser);
     }
 
     public BankUser getBankUserByUserId(String userid) {
