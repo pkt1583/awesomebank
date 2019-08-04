@@ -61,6 +61,7 @@ public class Account {
         @Getter
         private final long transactionAmount;
         @NotNull
+        @Getter
         private final TransactionType transactionType;
         @Getter
         private String transactionId = UUID.randomUUID().toString();
